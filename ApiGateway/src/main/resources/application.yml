@@ -1,0 +1,23 @@
+server:
+  port: 8090
+  
+
+spring:
+  application:
+    name: gateway
+    
+
+  cloud:
+    gateway:
+      routes:
+      - id: service-1
+        uri: lb://ms4-service-1
+        predicates:
+        - Path=/collage/**
+       
+      - id: service-2
+        uri: lb://ms4-service-2
+        predicates:
+        - Path=/student/**
+          
+          
